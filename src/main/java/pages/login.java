@@ -18,13 +18,13 @@ public class login {
 
     public WebDriver driver;
 
-    @FindBy(xpath = "//input[@id='mui-10']")
+    @FindBy(xpath = "//input[@name='email']")
     WebElement usernameipt;
 
-    @FindBy(xpath = "//input[@id='mui-12']")
+    @FindBy(xpath = "//input[@name='password']")
     WebElement passwordipt;
 
-    @FindBy(xpath = "//button[@id='mui-15']")
+    @FindBy(xpath = "//button[normalize-space()='Log In']")
     WebElement lgnbtn;
 
     public login(WebDriver driver) {
