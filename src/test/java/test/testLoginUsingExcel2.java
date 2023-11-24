@@ -5,33 +5,58 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.CellType;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.*;
 import pages.login;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import static java.sql.DriverManager.getDriver;
+
 public class testLoginUsingExcel2 {
 
     public WebDriver driver;
 
+    @BeforeClass
+    public void open(){
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+    }
+
+    @BeforeMethod
+    public void openUrl(){
+        driver.get("https://ocushare-dev-portal.azurewebsites.net/");
+    }
 
     @Test (dataProvider = "getData")
-    public void myTest1(String username,String password)  {
+    public void myTest1(String username,String password) throws IOException, InterruptedException {
 
+        /*
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://ocushare-dev-portal.azurewebsites.net/");
+        */
         login lgn = new login(driver);
         lgn.enterUsername(username);
         lgn.enterPassword(password);
         lgn.clkLgnbtn();
         lgn.print();
+        Thread.sleep(500);
+        lgn.screenshot();
 
     }
+
+    @AfterClass
+    public void close(){
+       // driver.quit();
+    }
+
     @DataProvider
     Object[][] getData() throws IOException {
 

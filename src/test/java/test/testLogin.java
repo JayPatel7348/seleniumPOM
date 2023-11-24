@@ -18,10 +18,18 @@ public class testLogin {
 
     }
 
+    @BeforeMethod
+    public void openUrl()
+    {
+        driver.get("https://ocushare-dev-portal.azurewebsites.net/");
+
+
+    }
+
 
     @Test
     public void loginTest() throws InterruptedException {
-        driver.get("https://ocushare-dev-portal.azurewebsites.net/");
+        //driver.get("https://ocushare-dev-portal.azurewebsites.net/");
         login lgn = new login(driver);
         lgn.enterUsername("jaypatel");
         lgn.enterPassword("Michi@786");
@@ -32,7 +40,7 @@ public class testLogin {
 
     @Test
     public void InValidloginTest() throws InterruptedException {
-        driver.get("https://ocushare-dev-portal.azurewebsites.net/");
+       // driver.get("https://ocushare-dev-portal.azurewebsites.net/");
         login lgn = new login(driver);
         lgn.enterUsername("jaypatel");
         lgn.enterPassword("24353tre");
@@ -43,7 +51,7 @@ public class testLogin {
 
     @Test
     public void blankloginTest() throws InterruptedException {
-        driver.get("https://ocushare-dev-portal.azurewebsites.net/");
+       // driver.get("https://ocushare-dev-portal.azurewebsites.net/");
         login lgn = new login(driver);
         lgn.enterUsername(" ");
         lgn.enterPassword(" ");
@@ -55,7 +63,7 @@ public class testLogin {
     @AfterClass
     public void close()
     {
-       // driver.close();
+       driver.quit();
     }
 
 }
