@@ -15,28 +15,28 @@ public class SignUp {
     }
 
     // Define WebElement locators using @FindBy annotation
-    @FindBy(xpath = "//input[@id='mui-27']")
+    @FindBy(name = "firstName")
     private WebElement inputfname;
 
-    @FindBy(xpath = "//input[@id='mui-29']")
+    @FindBy(name = "middleName")
     private WebElement inputmname;
 
-    @FindBy(xpath = "//input[@id='mui-31']")
+    @FindBy(name = "lastName")
     private WebElement inputlname;
 
-    @FindBy(xpath = "//input[@id='mui-33']")
+    @FindBy(name = "email")
     private WebElement inputemail;
 
-    @FindBy(xpath = "//input[@id='mui-35']")
+    @FindBy(name = "phoneNumber")
     private WebElement inputphone;
 
-    @FindBy(xpath = "//input[@id='mui-37']")
+    @FindBy(name = "userName")
     private WebElement inputusername;
 
-    @FindBy(xpath = "//input[@id='mui-39']")
+    @FindBy(name = "password")
     private WebElement inputpassword;
 
-    @FindBy(xpath = "//input[@id='mui-41']")
+    @FindBy(name = "confirmPassword")
     private WebElement inputrepassword;
 
     @FindBy(name = "acceptedPolicy")
